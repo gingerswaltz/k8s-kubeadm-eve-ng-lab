@@ -149,17 +149,4 @@ kubeadm errors that look like API timeouts often have a lower-level cause. Here 
 The control plane address must be stable before init.
 Default failover for pods on a dead worker is about 5 minutes. The service itself keeps working as long as other replicas exist, because endpoints are updated much faster than pods are rescheduled.
 A single control plane node is a single point of failure for the API (running workloads keep running).
-Next steps
- Reserve the node addresses on the router (or set them with netplan)
- Test control plane failure (power off linux2) and document what keeps working
- Three control plane nodes with stacked etcd and a load balancer for the API
- Ingress controller and persistent storage (CSI)
- Automated node install with PXE and autoinstall / cloud-init
-Repository layout
-text
-.
-├── README.md
-└── scripts/
-    └── k8s-prep.sh   # node preparation, run on every node before init/join
-
 No join tokens, certificate hashes, kubeconfig files or passwords are stored in this repository.
